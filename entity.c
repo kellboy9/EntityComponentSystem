@@ -11,9 +11,10 @@ unsigned int create_entity(struct entities *_entities)
 			return entity;
 		}
 
-		printf("Error: no more entities.\n");
-		return ENTITY_COUNT;
 	}
+	
+	printf("Error: no more entities.\n");
+	return ENTITY_COUNT;
 }
 
 void destroy_entity(struct entities *_entities, unsigned int entity)

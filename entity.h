@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "component.h"
 
+#define ENTITY_COUNT 500
+
 #ifndef ENTITY_H
 #define ENTITY_H
-
-#define ENTITY_COUNT 100
 
 struct entities
 {
