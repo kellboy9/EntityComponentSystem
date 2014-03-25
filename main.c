@@ -1,19 +1,14 @@
 #include <stdio.h>
 #include "entity.h"
+#include "component.h"
+#include "system.h"
+
 
 int main(int argc, char** argv)
 {
-	int num_entities = 5;
-	struct entity entities[num_entities];
-	int i;
-	for(i = 0; i < num_entities; ++i)
-	{
-		entities[i].id = i;
-	}
-	
-	for(i = 0; i < num_entities; ++i)
-	{
-		printf("%d\n", entities[i].id);
-	}
+	//ENTITY_COUNT 500
+	struct entities entities;
+	create_player(&entities, 5.0f, 10.0f);		
+	sys_render_print_info(&entities);
 	return 0;
 }

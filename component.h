@@ -10,11 +10,23 @@ struct cmp_position
 };
 struct cmp_render
 {
+	const char* sprite;
+	//SDL_Surface* sprite;
+};
+struct cmp_collision
+{
 	float x;
 	float y;
 	float w;
 	float h;
-	//SDL_Surface* sprite;
+};
+
+enum component
+{
+	CMP_NONE = 0,
+	CMP_POSITION = 1 << 0,
+	CMP_RENDER = 1 << 1,
+	CMP_COLLISION = 1 << 2 
 };
 
 #endif
