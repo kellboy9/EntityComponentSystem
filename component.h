@@ -10,8 +10,7 @@ struct cmp_position
 };
 struct cmp_render
 {
-	const char* sprite;
-	//SDL_Surface* sprite;
+	const char* name; //this name must correspond with a name present in the sprite database;
 };
 struct cmp_collision
 {

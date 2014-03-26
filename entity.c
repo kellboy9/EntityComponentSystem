@@ -1,6 +1,5 @@
 #include "entity.h"
 
-
 unsigned int create_entity(struct entities *_entities)
 {
 	unsigned int entity;
@@ -30,6 +29,6 @@ unsigned int create_player(struct entities *_entities, float x, float y)
 	_entities->positions[entity].y = y;
 	_entities->collisions[entity].x = x;
 	_entities->collisions[entity].y = y;
-	_entities->renders[entity].sprite = "player";
+	_entities->renders[entity].name = "player";
 	return entity;
 }
