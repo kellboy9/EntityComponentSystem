@@ -57,6 +57,9 @@ int main(int argc, char** argv)
 				case SDL_KEYDOWN:
 					if(ev.key.keysym.sym == SDLK_ESCAPE)
 						done = 1;
+					if(ev.key.keysym.sym == SDLK_p)
+						sys_render_print_info(&entities);
+
 					key[ev.key.keysym.sym] = 1;
 					break;
 				case SDL_KEYUP:

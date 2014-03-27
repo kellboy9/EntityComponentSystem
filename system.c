@@ -55,6 +55,7 @@ void sys_render_print_info(struct entities *_entities)
 	}
 }
 
+//TODO: Possibly classify system.c into system_player.c or system_ai.c or whatever and split it into functions (but make there only one header, system.h)
 //INPUT SUBSYSTEM
 void sys_input_update(struct entities *_entities, int key[KEY_COUNT])
 {
@@ -64,13 +65,13 @@ void sys_input_update(struct entities *_entities, int key[KEY_COUNT])
 		if((_entities->component_mask[entity] & CMP_INPUT_PLAYER) == CMP_INPUT_PLAYER)
 		{
 			if(key[SDLK_UP])
-				_entities->positions[entity].y--;
+				_entities->positions[entity].y-=4.0f;
 			if(key[SDLK_DOWN])
-				_entities->positions[entity].y++;
+				_entities->positions[entity].y+=4.0f;
 			if(key[SDLK_LEFT])
-				_entities->positions[entity].x--;
+				_entities->positions[entity].x-=4.0f;
 			if(key[SDLK_RIGHT])
-				_entities->positions[entity].x++;
+				_entities->positions[entity].x+=4.0f;
 		}
 	}
 }
