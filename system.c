@@ -6,7 +6,7 @@ void sys_render_update(struct entities *_entities, struct sprites *_sprites, SDL
 {
 	//UI/HUD elements defined as render components without position
 	//Object sprites defined as render components + position
-	
+
 	unsigned int entity;
 	struct cmp_position *pos;
 	struct cmp_position *render;
@@ -52,5 +52,25 @@ void sys_render_print_info(struct entities *_entities)
 			printf("%s at %f, %f\n", render->name, pos->x, pos->y);
 		}
 
+	}
+}
+
+//INPUT SUBSYSTEM
+void sys_input_update(struct entities *_entities, int key[KEY_COUNT])
+{
+	int entity;
+	for(entity = 0; entity < ENTITY_COUNT; ++entity)
+	{
+		if((_entities->component_mask[entity] & CMP_INPUT_PLAYER) == CMP_INPUT_PLAYER)
+		{
+			if(key[SDLK_UP])
+				_entities->positions[entity].y--;
+			if(key[SDLK_DOWN])
+				_entities->positions[entity].y++;
+			if(key[SDLK_LEFT])
+				_entities->positions[entity].x--;
+			if(key[SDLK_RIGHT])
+				_entities->positions[entity].x++;
+		}
 	}
 }

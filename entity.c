@@ -24,7 +24,7 @@ void destroy_entity(struct entities *_entities, unsigned int entity)
 unsigned int create_player(struct entities *_entities, float x, float y)
 {
 	unsigned int entity = create_entity(_entities);
-	_entities->component_mask[entity] = CMP_POSITION | CMP_COLLISION | CMP_RENDER;
+	_entities->component_mask[entity] = CMP_POSITION | CMP_COLLISION | CMP_RENDER | CMP_INPUT_PLAYER;
 	_entities->positions[entity].x = x;
 	_entities->positions[entity].y = y;
 	_entities->collisions[entity].x = x;

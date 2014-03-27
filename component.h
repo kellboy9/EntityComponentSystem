@@ -25,7 +25,8 @@ enum component
 	CMP_NONE = 0,
 	CMP_POSITION = 1 << 0,
 	CMP_RENDER = 1 << 1,
-	CMP_COLLISION = 1 << 2 
+	CMP_COLLISION = 1 << 2,
+	CMP_INPUT_PLAYER = 1 << 3
 };
 
 #endif
