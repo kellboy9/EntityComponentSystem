@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 	if(renderer==NULL)
 		printf("Error: Could not create renderer. %s", SDL_GetError());
 
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
+	//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
 	SDL_RenderSetLogicalSize(renderer, 640, 400);
 
 	SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);

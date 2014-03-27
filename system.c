@@ -65,13 +65,13 @@ void sys_input_update(struct entities *_entities, int key[KEY_COUNT])
 		if((_entities->component_mask[entity] & CMP_INPUT_PLAYER) == CMP_INPUT_PLAYER)
 		{
 			if(key[SDLK_UP])
-				_entities->positions[entity].y-=4.0f;
+				_entities->positions[entity].y-=2.0f;
 			if(key[SDLK_DOWN])
-				_entities->positions[entity].y+=4.0f;
+				_entities->positions[entity].y+=2.0f;
 			if(key[SDLK_LEFT])
-				_entities->positions[entity].x-=4.0f;
+				_entities->positions[entity].x-=2.0f;
 			if(key[SDLK_RIGHT])
-				_entities->positions[entity].x+=4.0f;
+				_entities->positions[entity].x+=2.0f;
 		}
 	}
 }
