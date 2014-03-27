@@ -57,8 +57,8 @@ int main(int argc, char** argv)
 		}
 
 		SDL_RenderClear(renderer);
-		//sys_render_update(&entities, &sprites, renderer);
-		sys_render_print_info(&entities);
+		sys_render_update(&entities, &sprites, renderer);
+		//sys_render_print_info(&entities);
 		SDL_RenderPresent(renderer);
 
 	}

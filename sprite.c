@@ -11,8 +11,13 @@ int create_sprite(struct sprites *_sprites, SDL_Renderer *renderer, const char* 
 			strcpy(cat_name, name);
 			strcat(cat_name, ".bmp");	
 			SDL_Surface *surface = SDL_LoadBMP(cat_name);
+			if(surface == NULL)
+				printf("Error: couldn't load image %s", SDL_GetError());
 			_sprites->textures[sprite] = SDL_CreateTextureFromSurface(renderer, surface);
 			_sprites->names[sprite] = name;
+
+			SDL_FreeSurface(surface);
+
 			return sprite;
 		}
 	}
