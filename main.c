@@ -7,20 +7,24 @@
 //create the databases
 struct entities entities;
 struct sprites sprites;
-int key[KEY_COUNT];
+//int key[KEY_COUNT];
+const Uint8 *key;
 
 int initialize_entities()
 {
 	//ENTITY_COUNT 500
 	printf("%d\n", ENTITY_COUNT);
-	int player = create_player(&entities, 5.0f, 10.0f);		
+	//int player = create_player(&entities, 5.0f, 10.0f);		
 	create_player(&entities, 100.0f, 16.0f);
 	create_player(&entities, 200.0f, 64.0f);
 	create_entity(&entities);
+	return 0;
 }
 
 int main(int argc, char** argv)
 {
+	
+	//memset(key, 0, KEY_COUNT);
 
 	//Set up SDL
 	SDL_Window *window;
@@ -29,7 +33,7 @@ int main(int argc, char** argv)
 	if(SDL_Init(SDL_INIT_VIDEO) < 0)
 		printf("Error: Could not intitialize SDL. %s", SDL_GetError());
 
-	SDL_CreateWindowAndRenderer(0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP, &window, &renderer);
+	SDL_CreateWindowAndRenderer(0, 0, SDL_WINDOW_RESIZABLE, &window, &renderer);
 	if(window==NULL)
 		printf("Error: Could not create window. %s", SDL_GetError());
 	if(renderer==NULL)
@@ -45,6 +49,9 @@ int main(int argc, char** argv)
 	int done = 0;
 	while(!done)
 	{
+		
+		//use new method for getting input since SDL bitches about keys and segfaults :c
+		key = SDL_GetKeyboardState(NULL);
 		SDL_Event ev;
 		while(SDL_PollEvent(&ev))
 		{
@@ -60,10 +67,10 @@ int main(int argc, char** argv)
 					if(ev.key.keysym.sym == SDLK_p)
 						sys_render_print_info(&entities);
 
-					key[ev.key.keysym.sym] = 1;
+					//key[ev.key.keysym.sym] = 1;
 					break;
 				case SDL_KEYUP:
-					key[ev.key.keysym.sym] = 0;
+					//key[ev.key.keysym.sym] = 0;
 					break;
 			}
 		}

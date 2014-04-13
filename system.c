@@ -8,8 +8,8 @@ void sys_render_update(struct entities *_entities, struct sprites *_sprites, SDL
 	//Object sprites defined as render components + position
 
 	unsigned int entity;
-	struct cmp_position *pos;
-	struct cmp_position *render;
+	//struct cmp_position *pos;
+	//struct cmp_position *render;
 
 	for(entity = 0; entity < ENTITY_COUNT; ++entity)
 	{
@@ -57,21 +57,23 @@ void sys_render_print_info(struct entities *_entities)
 
 //TODO: Possibly classify system.c into system_player.c or system_ai.c or whatever and split it into functions (but make there only one header, system.h)
 //INPUT SUBSYSTEM
-void sys_input_update(struct entities *_entities, int key[KEY_COUNT])
+void sys_input_update(struct entities *_entities, const Uint8 *key)
 {
 	int entity;
 	for(entity = 0; entity < ENTITY_COUNT; ++entity)
 	{
 		if((_entities->component_mask[entity] & CMP_INPUT_PLAYER) == CMP_INPUT_PLAYER)
 		{
-			if(key[SDLK_UP])
+			if(key[SDL_SCANCODE_UP])
 				_entities->positions[entity].y-=2.0f;
-			if(key[SDLK_DOWN])
+			if(key[SDL_SCANCODE_DOWN])
 				_entities->positions[entity].y+=2.0f;
-			if(key[SDLK_LEFT])
+			if(key[SDL_SCANCODE_LEFT])
 				_entities->positions[entity].x-=2.0f;
-			if(key[SDLK_RIGHT])
+			if(key[SDL_SCANCODE_RIGHT])
 				_entities->positions[entity].x+=2.0f;
 		}
 	}
 }
+
+
